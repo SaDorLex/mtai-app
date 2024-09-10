@@ -10,4 +10,4 @@ Route::get('/', function () {
 
 Route::post('/entrar', [LoginController::class, 'entrar']) -> name('entrar');
 
-Route::get('/dashboard',[DashboardController::class, 'dashboard']) -> name('dashboard');
+Route::view('/dashboard',[DashboardController::class, 'dashboard']) -> name('dashboard');
