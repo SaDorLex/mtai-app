@@ -10,6 +10,7 @@ Route::get('/', function () {
 
 Route::post('/entrar', [LoginController::class, 'entrar']) -> name('entrar');
 
+<<<<<<< HEAD
 Route::get('/dashboard',[DashboardController::class, 'dashboard']) -> name('dashboard');
 
 Route::get('/db-test', function () {
@@ -20,3 +21,6 @@ Route::get('/db-test', function () {
         return 'No se pudo conectar a la base de datos: ' . $e->getMessage();
     }
 });
+=======
+Route::view('/dashboard',[DashboardController::class, 'dashboard']) -> name('dashboard');
+>>>>>>> origin/master
