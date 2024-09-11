@@ -16,15 +16,15 @@
     <div class="container">
         <div class="titulo-1">Bienvenido,<br>Encargado</div>
         <div class="titulo-2">IDENTIFÍCATE</div>
-        <form action="{{ route('entrar') }}" method="POST">
+        <form action="{{ route('ingreso') }}" method="POST">
             @csrf
             <div class="input">
                 <span class="material-symbols-outlined">person</span>
-                <input type="text" placeholder="Usuario">
+                <input id="email" name="email" type="text" placeholder="Usuario" required>
             </div>
             <div class="input">
                 <span class="material-symbols-outlined">key</span>
-                <input type="password" placeholder="Contraseña">
+                <input id="password" name="password" type="password" placeholder="Contraseña" required>
             </div>
             <button type="submit" class="button">Ingresar</button>
         </form>
