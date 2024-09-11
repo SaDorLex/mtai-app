@@ -11,3 +11,12 @@ Route::get('/', function () {
 Route::post('/entrar', [LoginController::class, 'entrar']) -> name('entrar');
 
 Route::get('/dashboard',[DashboardController::class, 'dashboard']) -> name('dashboard');
+
+Route::get('/db-test', function () {
+    try {
+        \DB::connection()->getPdo();
+        return 'Conexión exitosa a MySQL';
+    } catch (\Exception $e) {
+        return 'No se pudo conectar a la base de datos: ' . $e->getMessage();
+    }
+});
