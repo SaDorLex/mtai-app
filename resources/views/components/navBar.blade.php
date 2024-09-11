@@ -7,7 +7,7 @@
             <span class="material-symbols-outlined">settings</span>
         </div>
         <div class="closeSesionPrimaryBar">
-            <button>Cerrar Sesión</button>
+            <button onclick="window.location.href = '{{ route('logout') }}' " type="submit">Cerrar Sesión</button>
         </div>
     </div>
 </div>
