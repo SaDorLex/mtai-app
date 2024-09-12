@@ -1,0 +1,139 @@
+*{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.title{
+    width: 50%;
+    background-color: #EE1D33;
+    color: white;
+    margin: 1vw auto;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 29px;
+    padding: 5px 0;
+    font-weight: 500;
+}
+
+.searcher{
+    display: flex;
+    font-weight: 500;
+    margin: auto;
+    width: fit-content;
+    margin-top: 20px;
+}
+
+.filter{
+    margin: 0 30px;
+}
+
+.filter input{
+    border-radius: 10px;
+    border: inherit;
+    background-color: #D9D9D9;
+    height: 31px;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+.filter select{
+    border-radius: 10px;
+    border: inherit;
+    background-color: #D9D9D9;
+    height: 31px;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+.filter input:focus{
+    outline: 1px solid #1D6223;
+}
+
+.filter select:focus{
+    outline: 1px solid #1D6223;
+}
+
+.search-button{
+    display: flex;
+    background-color: #1D6223;
+    color: white;
+    padding: 0 8px;
+    border-radius: 10px;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.button-text{
+    margin-left: 5px;
+}
+
+.search-button:hover{
+    background-color: white;
+    color: #1D6223;
+    outline: 2px solid #1D6223;
+    cursor: pointer;
+}
+
+/* ESTILOS DE LA VENTANA DE FILTROS */
+
+.bg-filtros{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.cont-filtros{
+    margin: auto;
+    background-color: white;
+    width: 50%;
+    height: 40%;
+    border-radius: 10px;
+    outline: 2px solid #D9D9D9;
+}
+
+.close-button{
+    display: flex;
+}
+
+.btn-close{
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.btn-close span{
+    font-size: clamp(1rem, 0.359rem + 2.0513vw, 2rem);
+}
+
+.filter-content{
+    font-weight: bold;
+    font-size: 1vw;
+    margin: 1vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    color: #1D6223;
+}
+
+.filter-column{
+    text-align: center;
+    width: 100%;
+}
+
+.item-option{
+    margin: auto;
+    display: flex;
+    font-weight: 500;
+    color: black;
+}
+
+.item-option a{
+    margin: auto;
+}
+
+.mostrar{
+    display: flex;
+}
