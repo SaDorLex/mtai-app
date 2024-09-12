@@ -204,3 +204,25 @@
     padding: 2px 5px;
     border-radius: 10px;
 }
+
+.menu ul{
+    list-style: none;
+    position: absolute;
+    background-color: #1D6223;
+    display: none;
+    top: 5.6vw;
+    left: 50vw;
+    z-index: 1;
+}
+
+.menu ul li{
+    padding: 5px 20px;
+}
+
+.menu:hover > ul{
+    display: block;
+}
+
+.desplegable a{
+    margin-left: 10px;
+}
