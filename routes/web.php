@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MiembroController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -33,4 +34,7 @@ Route::view('/reportesMensuales', 'reportesMensuales') -> middleware('auth') -> 
 Route::view('/reportes', 'reportes') -> middleware('auth') -> name('reportes');
 
 Route::view('/agregarMiembro', 'agregarMiembro') -> middleware('auth') -> name('agregarMiembro');
+
 //CRUD de Miembros
+
+Route::post('crearMiembro', [MiembroController::class, 'store']) -> name('crearMiembro');

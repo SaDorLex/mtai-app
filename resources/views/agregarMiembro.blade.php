@@ -8,13 +8,24 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
+    @if ($errors->any())
+    <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert">
+        <strong class="font-medium">Errores:</strong>
+        <ul class="list-disc pl-5 mt-2">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <x-navBar>
     </x-navBar>
     <div class="contenedor">
         <div class="titulo">
             Registrar Nuevo Mahikari-Tai
         </div>
-        <form>
+        <form action="{{ route('crearMiembro') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="formulario">
                 <div class="form-img">
                     <div class="container">
@@ -25,58 +36,58 @@
                 </div>
                 <div class="form-datos">
                     <div class="datos-row">
-                        <input placeholder="Nombres" required>
-                        <input placeholder="Apellido Paterno" required>
-                        <input placeholder="Apellido Materno" required>
+                        <input name="nombre" placeholder="Nombres" required>
+                        <input name="ap_p" placeholder="Apellido Paterno" required>
+                        <input name="ap_m" placeholder="Apellido Materno" required>
                     </div>
                     <div class="datos-row">
-                        <input placeholder="DNI" required>
-                        <input placeholder="Teléfono" required>
+                        <input name="dni" placeholder="DNI" required>
+                        <input name="telefono" placeholder="Teléfono" required>
                     </div>
                     <div class="datos-row">
-                        <input type="number" placeholder="Edad" required>
-                        <input type="email" placeholder="Correo" required>
+                        <input name="edad" type="number" placeholder="Edad" required>
+                        <input name="correo" type="email" placeholder="Correo" required>
                     </div>
                     <div class="datos-row combo-boxes">
-                        <select required>
+                        <select name="categoria" required>
                             <option disabled selected hidden>Categoría</option>
-                            <option>Oficiales</option>
-                            <option>Jun Tai In</option>
-                            <option>Shonembu</option>
+                            <option value="Oficiales">Oficiales</option>
+                            <option value="Jun Tai In">Jun Tai In</option>
+                            <option value="Shonembu">Shonembu</option>
                         </select>
-                        <select required>
+                        <select name="genero" required>
                             <option disabled selected hidden>Género</option>
-                            <option>Masculino</option>
-                            <option>Femenino</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
                         </select>
-                        <select required>
+                        <select name="seminario" required>
                             <option disabled selected hidden>Seminario</option>
-                            <option>Inicial</option>
-                            <option>Intermedio</option>
-                            <option>Superior</option>
+                            <option value="Inicial">Inicial</option>
+                            <option value="Intermedio">Intermedio</option>
+                            <option value="Superior">Superior</option>
                         </select>
                     </div>
                     <div class="datos-row combo-boxes">
-                        <select required>
+                        <select name="modulo" required>
                             <option disabled selected hidden>Módulo</option>
-                            <option>Ninguno</option>
-                            <option>Módulo 1</option>
-                            <option>Módulo 2</option>
-                            <option>Módulo Plus</option>
+                            <option value="Ninguno">Ninguno</option>
+                            <option value="Módulo 1">Módulo 1</option>
+                            <option value="Módulo 2">Módulo 2</option>
+                            <option value="Módulo Plus">Módulo Plus</option>
                         </select>
-                        <select required>
+                        <select name="local" required>
                             <option disabled selected hidden>Local</option>
-                            <option>Chiclayo</option>
-                            <option>Piura</option>
-                            <option>Jaén</option>
-                            <option>Chachapoyas</option>
+                            <option value="Chiclayo">Chiclayo</option>
+                            <option value="Piura">Piura</option>
+                            <option value="Jaén">Jaén</option>
+                            <option value="Chachapoyas">Chachapoyas</option>
                         </select>
                     </div>
                     <div class="datos-row dates">
                         <p>Fecha de Nacimiento:</p>
-                        <input type="date" required>
+                        <input name="fecha_nac" type="date" required>
                         <p>Ondas Divinas:</p>
-                        <input type="month" required>
+                        <input name="ondas_d" type="month" required>
                     </div>
                     <div class="datos-row">
                         <input type="file" accept=".jpg, .png, .jpeg" name="input-file" id="input-file" required>
