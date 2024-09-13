@@ -154,6 +154,10 @@
                     <span class="material-symbols-outlined">search</span>
                     <div class="button-text">Buscar</div>
                 </div>
+                <div onclick="window.location.href = '{{ route('agregarMiembro') }}' " class="search-button">
+                    <span class="material-symbols-outlined">add</span>
+                    <div class="button-text">Agregar</div>
+                </div>
             </div>
         </form>
     </div>

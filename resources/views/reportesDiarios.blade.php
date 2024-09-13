@@ -9,6 +9,8 @@
 <body>
     <x-navBar>
     </x-navBar>
+    <x-btnReportes>
+    </x-btnReportes>
     <div class="title">
         Reporte Diario
     </div>

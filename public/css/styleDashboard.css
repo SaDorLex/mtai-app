@@ -226,3 +226,35 @@
 .desplegable a{
     margin-left: 10px;
 }
+
+
+.btnReportes{
+    width: 60%;
+    display: flex;
+    margin: 2vw auto;
+    justify-content: space-between;
+    font-size: 25px;
+}
+
+.buttonReporte{
+    display: flex;
+    align-items: center;
+    background-color: #1D6223;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.buttonReporte a{
+    margin: 0 0.5vw;
+}
+
+.buttonReporte span{
+    font-size: 25px;
+}
+
+.buttonReporte:hover{
+    background-color: #21982A;
+}

@@ -1,0 +1,320 @@
+:root{
+    --primary-color: #1d7824;
+    --secundary-color: #ee1d33;
+    --thir-color: #21982a;
+    --primary-color-hover: #082b0d;
+    --secundary-color-hover:#881420;
+}
+
+*{
+    top: 0;
+    left: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.titulo{
+    background-color: #EE1D33;
+    color: white;
+    font-weight: 600;
+    width: 50%;
+    text-align: center;
+    border-radius: 10px;
+    font-size: clamp(1rem, 0.4792rem + 1.6667vw, 1.8125rem);
+    padding: 8px 10px;
+    margin: 1vw auto;
+}
+
+.formulario{
+    width: 70%;
+    margin: auto;
+    margin-top: 2vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.form-datos input{
+    width: 200px;
+    border-radius: 10px;
+    border: 0;
+    height: 48px;
+    font-size: clamp(1rem, 0.7596rem + 0.7692vw, 1.375rem);
+    background-color: #D9D9D9;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 600;
+    margin: auto;
+}
+
+.form-datos input[type="number"]{
+    width: 63px;
+}
+
+.form-datos input[type="email"]{
+    width: 100%;
+}
+
+.form-datos input[type="file"]{
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+}
+
+.form-datos input[type="file"]:hover{
+    cursor: pointer;
+}
+
+.custom-button{
+    display: inline-block;
+    font-size: clamp(1rem, 0.7596rem + 0.7692vw, 1.375rem);
+    background-color: #1D6223;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: white;
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+.custom-button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: #1D6223;
+    outline: 1px solid #1D6223;
+}
+
+
+.form-datos input:focus{
+    outline: 2px solid #1D6223;
+}
+
+.form-datos input::placeholder{
+    color: black;
+    opacity: 1;
+}
+
+.form-datos select{
+    border-radius: 10px;
+    border: 0;
+    height: 48px;
+    font-size: clamp(1rem, 0.7596rem + 0.7692vw, 1.375rem);
+    background-color: #D9D9D9;
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+.form-datos select:focus{
+    outline: 2px solid #1D6223;
+}
+
+.form-datos option[disabled][selected]{
+    outline: 2px solid #1D6223;
+}
+
+.datos-row{
+    display: flex;
+    gap: 10px;
+    margin: 1.5vw 0;
+}
+
+.datos-row p{
+    margin: auto;
+    vertical-align: middle;
+    font-size: clamp(1rem, 0.7596rem + 0.7692vw, 1.375rem);
+}
+
+.combo-boxes{
+    justify-content: space-around;
+}
+
+.dates p{
+    width: fit-content;
+}
+
+.dates input{
+    margin: auto;
+}
+
+.btn-registrar{
+    background-color: #1d7824;
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: clamp(1rem, 0.7596rem + 0.7692vw, 1.375rem);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.btn-cancelar{
+    background-color: #ee1d33;
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: clamp(1rem, 0.7596rem + 0.7692vw, 1.375rem);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.btn-registrar:hover{
+    background-color: white;
+    color: #1d7824;
+    outline: 1px solid #1d7824;
+}
+
+.btn-cancelar:hover{
+    background-color: white;
+    color: #ee1d33;
+    outline: 1px solid #ee1d33;
+}
+
+/*A PARTIR DE AQUÍ SON ESTILOS DEL CROPPER*/
+
+.container{
+    width: 21vw;
+    margin: 10px auto;
+    padding: 0;
+}
+
+.group{
+    position: relative;
+    width: 100%;
+    height: 21vw;
+    padding: 0;
+    outline: 5px solid #1d7824;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.group .crop-image{
+    height: 100%;
+}
+
+.modal{
+    background-color: rgba(0, 0, 0, 0.247);
+    backdrop-filter: blur(0px);
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 150ms ease-in-out;
+    overflow: auto;
+    padding: 20px;
+}
+.modal-content{
+    width: 1200px;
+    margin: auto;
+    background-color: rgb(250, 250, 250);
+    border-radius: 10px;
+    overflow: hidden;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: 400ms 300ms all ease;
+    padding-right: 20px;
+}
+.modal-content .modal-header{
+    width: 100%;
+    padding: 20px 10px;
+    text-align: center;
+    background-color: rgb(249,249,249);
+    box-shadow: 0px -2px 7px 1px rgba(0, 0, 0, 0.281);
+    font-size: 18px;
+}
+
+.modal-header p{
+    font-size: clamp(1rem, 0.7596rem + 0.7692vw, 1.375rem);
+    color: #1D6223;
+    font-weight: 600;
+}
+
+.modal-content .modal-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 18px 10px;
+}
+.modal-body .content-imagen-cropper{
+    width: 80%;
+    height: 400px;
+    padding: 5px;
+    outline: 1px solid var(--thir-color);
+}
+.content-imagen-cropper .img-cropper{
+    width: 100%;
+}
+.modal-body .content-imagen-sample{
+    height: 200px;
+    width: 200px;
+    outline: 1px solid var(--thir-color);
+    border-radius: 100%;
+    overflow: hidden;
+}
+.modal-body .content-imagen-sample .img-sample{
+    height: 100%;
+    width: 100%;
+}
+.modal-content .modal-footer{
+    width: 100%;
+    padding: 10px 10px;
+    text-align: center;
+    background-color: rgb(249,249,249);
+    box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.281);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+.modal-footer .btn{
+    border: none;
+    padding: 12px 70px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    transition: background-color 300ms ease;
+}
+.modal-footer .primary{
+    background-color: var(--primary-color);
+}
+.modal-footer .secundary{
+    background-color: var(--secundary-color);
+}
+.modal-footer .primary:hover{
+    background-color: var(--primary-color-hover);
+}
+.modal-footer .secundary:hover{
+    background-color: var(--secundary-color-hover);
+}
+
+/* ==== Modal estilos active ==== */
+
+.modal.active{
+    opacity: 1;
+    backdrop-filter: blur(3px);
+    visibility: visible;
+}
+.modal-content.active{
+    transform: scale(1);
+    opacity: 1;
+}
+.modal.remove{
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    visibility: hidden;
+    transition: 150ms 150ms all ease-in-out;
+}
+.modal-content.remove{
+    transform: scale(0.9);
+    opacity: 0;
+    transition: 150ms all ease;
+}   

@@ -29,3 +29,8 @@ Route::view('/miembros', 'miembros') -> middleware('auth') -> name('miembros');
 Route::view('/reportesDiarios', 'reportesDiarios') -> middleware('auth') -> name('reportesDiarios');
 
 Route::view('/reportesMensuales', 'reportesMensuales') -> middleware('auth') -> name('reportesMensuales');
+
+Route::view('/reportes', 'reportes') -> middleware('auth') -> name('reportes');
+
+Route::view('/agregarMiembro', 'agregarMiembro') -> middleware('auth') -> name('agregarMiembro');
+//CRUD de Miembros

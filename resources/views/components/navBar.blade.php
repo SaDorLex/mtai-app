@@ -25,29 +25,9 @@
             <span class="material-symbols-outlined">boy</span>
             <a>Miembros</a>
         </div>
-        <div class="barButton menu">
+        <div class="barButton" onclick="window.location.href = '{{ route('reportes') }}' ">
             <span class="material-symbols-outlined">flag</span>
             <a>Reportes</a>
-            <ul>
-                <li>
-                    <div class="barButton desplegable" onclick="window.location.href = '{{ route('reportesDiarios') }}' ">
-                        <span class="material-symbols-outlined">done_outline</span>
-                        <a>Reportes Diarios</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="barButton desplegable">
-                        <span class="material-symbols-outlined">checklist</span>
-                        <a>Reportes Semanales</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="barButton desplegable" onclick="window.location.href = '{{ route('reportesMensuales') }}' ">
-                        <span class="material-symbols-outlined">calendar_today</span>
-                        <a>Reportes Mensuales</a>
-                    </div>
-                </li>
-            </ul>
         </div>
         <div class="barButton" onclick="window.location.href = '{{ route('cargos') }}' ">
             <span class="material-symbols-outlined">supervisor_account</span>
