@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CargoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MiembroController;
@@ -38,3 +39,9 @@ Route::view('/agregarMiembro', 'agregarMiembro') -> middleware('auth') -> name('
 //CRUD de Miembros
 
 Route::post('crearMiembro', [MiembroController::class, 'store']) -> name('crearMiembro');
+
+Route::get('/buscarMiembros', [MiembroController::class, 'buscarMiembro'])->name('buscarMiembro');
+
+//CRUD de Cargos
+
+Route::post('crearCargo', [CargoController::class, 'store']) -> name('crearCargo');

@@ -9,7 +9,7 @@
 <body>
 
 @php
-    $miembros = App\Models\Miembro::all();
+    $miembros = App\Models\Miembro::orderBy('ap_p','asc')->get();
 @endphp
     <x-navBar>
     </x-navBar>

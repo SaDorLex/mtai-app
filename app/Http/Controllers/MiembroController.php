@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Miembro;
-use Illuminate\Support\Facades\Log;
 use Exception;
 
 class MiembroController extends Controller
@@ -115,6 +114,15 @@ class MiembroController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function buscarMiembro(Request $request){
+        
+        $query = $request->input('query');
+
+        $miembros = Miembro::where('nombre','LIKE',"%{$query}%")->get();
+
+        return response()->json($miembros);
     }
 
 }

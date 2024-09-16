@@ -3,6 +3,141 @@
     margin: 0;
 }
 
+.vntAgregarCargo{
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    z-index: 1;
+}
+
+.vntAgregarCargo form{
+    background-color: white;
+    display: flex;
+    margin: auto;
+    width: 40%;
+    border-radius: 10px;
+    outline: 2px solid #a1a1a1;
+    flex-direction: column;
+}
+
+.formTitle{
+    font-size: 26px;
+    font-weight: bold;
+    margin: 10px auto;
+    color: #EE1D33;
+}
+
+.formInput{
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    gap: 10px;
+}
+
+.formInput select{
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.formInput select:focus{
+    outline: 1px solid #21982A;
+}
+
+.formInput input[type="text"]{
+    flex: 1;
+    font-size: 18px;
+    border-radius: 10px;
+    padding-left: 8px;
+}
+
+.formBtns{
+    width: fit-content;
+    margin: 10px auto;
+    display: flex;
+    gap: 10px;
+}
+
+.formSelectMiembro{
+    width: 90%;
+    display: flex;
+    margin: 10px auto;
+    gap: 10px;
+    font-size: 18px;
+    align-items: center;
+}
+
+.contSearch input{
+    width: 22vw;
+    flex: 1;
+    font-size: 18px;
+    padding-left: 5px;
+}
+
+.formBtns div{
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btnAdd{
+    background-color: #21982A;
+    border: 1px solid #14611b;
+    transition: all 0.5s ease;
+}
+
+.btnAdd:hover{
+    background-color: #187420;
+}
+
+.btnCancel{
+    background-color: #EE1D33;
+    border: 1px solid #9f1522;
+    transition: all 0.5s ease;
+}
+
+.btnCancel:hover{
+    background-color: #bb1526;
+}
+
+.hidden{
+    display: none;
+}
+
+.suggestions {
+    border: 1px solid #ccc;
+    max-height: 200px;
+    display: none;
+}
+
+.suggestions ul {
+    background-color: #fff;
+    width: 22vw;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.suggestions li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
 .title{
     width: 30vw;
     background-color: #EE1D33;
