@@ -80,3 +80,103 @@ sem0 = document.getElementById('sem-0')
 sem1 = document.getElementById('sem-1')
 sem2 = document.getElementById('sem-2')
 sem3 = document.getElementById('sem-3')
+
+sem0.addEventListener('click',function(){
+    if(sem0.checked){
+        sem1.checked = false
+        sem2.checked = false
+        sem3.checked = false
+    }
+})
+
+sem1.addEventListener('click', function(){
+    if(sem1.checked){
+        sem0.checked = false
+    }
+})
+
+sem2.addEventListener('click', function(){
+    if(sem2.checked){
+        sem0.checked = false
+    }
+})
+
+sem3.addEventListener('click', function(){
+    if(sem3.checked){
+        sem0.checked = false
+    }
+})
+
+loc0 = document.getElementById('loc-0')
+loc1 = document.getElementById('loc-1')
+loc2 = document.getElementById('loc-2')
+loc3 = document.getElementById('loc-3')
+loc4 = document.getElementById('loc-4')
+
+loc0.addEventListener('click',function(){
+    if(loc0.checked){
+        loc1.checked = false
+        loc2.checked = false
+        loc3.checked = false
+        loc4.checked = false
+    }
+})
+
+loc1.addEventListener('click', function(){
+    if(loc1.checked){
+        loc0.checked = false
+    }
+})
+
+loc2.addEventListener('click', function(){
+    if(loc2.checked){
+        loc0.checked = false
+    }
+})
+
+loc3.addEventListener('click', function(){
+    if(loc3.checked){
+        loc0.checked = false
+    }
+})
+
+loc4.addEventListener('click', function(){
+    if(loc4.checked){
+        loc0.checked = false
+    }
+})
+
+gen0 = document.getElementById('gen-0')
+gen1 = document.getElementById('gen-1')
+gen2 = document.getElementById('gen-2')
+
+gen0.addEventListener('click',function(){
+    if(gen0.checked){
+        gen1.checked = false
+        gen2.checked = false
+    }
+})
+
+gen1.addEventListener('click', function(){
+    if(gen1.checked){
+        gen0.checked = false
+    }
+})
+
+gen2.addEventListener('click', function(){
+    if(gen2.checked){
+        gen0.checked = false
+    }
+})
+
+buttons = document.querySelectorAll('#button-desplegar');
+
+buttons.forEach(function(boton){
+    boton.addEventListener('click',function(){
+        arrow = boton.querySelector('#arrow_down')
+        arrow.classList.toggle('rotar')
+
+        info = boton.closest('.miembro').querySelector('.infoMiembro')
+        info.classList.toggle('active')
+    })
+})

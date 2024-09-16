@@ -138,3 +138,118 @@
 .mostrar{
     display: flex;
 }
+
+.miembro{
+    background-color: #d9d9d9;
+    width: 52%;
+    margin: 1vw auto;
+    border-radius: 10px;
+}
+
+.etqMiembro{
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw;
+    border-radius: 10px;
+}
+
+.nameMiembro{
+    font-size: 2vw;
+    font-weight: 600;
+}
+
+.btnMiembro{
+    align-items: center;
+    display: flex;
+}
+
+.btnMiembro span{
+    cursor: pointer;
+    font-size: 2vw;
+    transition: all 0.5s ease;
+}
+
+.rotar{
+    transform: rotate(180deg);
+}
+
+.infoMiembro{
+    background-color: #eeeeee;
+    display: flex;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease; 
+}
+
+.active{
+    max-height: 500px;
+}
+
+.imgMiembro{
+    width: 33%;
+    display: flex;
+    align-items: center;
+}
+
+.imgMiembro img{
+    width: 70%;
+    margin: auto;
+    border-radius: 50%;
+    border: 10px solid #1D6223;
+}
+
+.datosMiembro{
+    width: 66%;
+    font-size: 1.4vw;
+    display: flex;
+    flex-direction: column;
+    margin: 1.5vw 0;
+    
+}
+
+.datosRow{
+    display: flex;
+    margin: 0.3vw 0;
+}
+
+.dato{
+    width: 50%;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.btnModificar{
+    background-color: #1D6223;
+    color: white;
+    padding: 0.3vw 2vw;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.btnModificar:hover{
+    background-color: #21982a;
+}
+
+.btnEliminar{
+    background-color: #EE1D33;
+    color: white;
+    padding: 0.3vw 2vw;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.btnEliminar:hover{
+    background-color: #a50f1f;
+}
+
+.buttonRow{
+    display: flex;
+    margin: 0.6vw 0;
+    justify-content: space-around;
+}

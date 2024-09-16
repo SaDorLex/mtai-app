@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
+
+@php
+    $miembros = App\Models\Miembro::all();
+@endphp
     <x-navBar>
     </x-navBar>
     <div class="filtros">
@@ -161,6 +165,9 @@
             </div>
         </form>
     </div>
+    @foreach($miembros as $miembro)
+        <x-miembro :miembro="$miembro"/>
+    @endforeach
     <script src="{{ asset('js/miembros.js') }}"></script>
 </body>
 </html>

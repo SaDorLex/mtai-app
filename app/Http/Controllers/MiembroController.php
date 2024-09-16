@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use app\Models\Miembro;
+use App\Models\Miembro;
+use Illuminate\Support\Facades\Log;
 use Exception;
 
 class MiembroController extends Controller
@@ -48,14 +49,13 @@ class MiembroController extends Controller
                 'ondas_d' => 'required|string',
                 'input-file' => 'required|image|mimes:jpeg,png,jpg|max:4096',
             ]);
-
-            if($request->hasFile('foto')){
-                $file = $request->file('foto');
+            if($request->hasFile('input-file')){
+                $file = $request->file('input-file');
                 $archivo = $request->input('dni');
                 $fileName = $archivo . '.' . $file->getClientOriginalExtension();
-                $path = $file->storeAs('public/fotos',$fileName);
-
-                $usuario = substr($request->input('nombre'),0,3) . $request->input('ap_p');;
+                $file->storeAs('public/fotos',$fileName);
+                $path = 'fotos/' . $fileName;
+                $usuario = strtolower(substr($request->input('nombre'),0,3) . $request->input('ap_p'));
                 $password = Hash::make($request->input('dni'));
 
                 Miembro::create([

@@ -12,72 +12,70 @@
         <div class="title">
             Cargos Actuales
         </div>
+        <div class="btnAgregarCargo">
+            Agregar Cargo
+        </div>
         <div class="contCargos">
             <div class="cargo">
-                <div class="cargoImg">
-                    <img src="{{ asset('img/Sample_User_Icon.png') }}">
+                <span class="material-symbols-outlined">delete</span>
+                <div class="imgCargo">
+                    <img src="{{ asset('img\Sample_User_Icon.png') }}">
                 </div>
-                <div class="cargoInfo">
-                    <div class="cargoTitle">
-                        Taicho
-                    </div>
-                    <div class="cargoName">
-                        Nombre
-                    </div>
+                <div class="persCargo">
+                    Ricardo Valente Eche Espinoza
+                </div>
+                <div class="descCargo">
+                    Taicho
                 </div>
             </div>
         </div>
         <div class="contCargos">
             <div class="cargo">
-                <div class="cargoImg">
-                    <img src="{{ asset('img/Sample_User_Icon.png') }}">
+                <span class="material-symbols-outlined">delete</span>
+                <div class="imgCargo">
+                    <img src="{{ asset('img\Sample_User_Icon.png') }}">
                 </div>
-                <div class="cargoInfo">
-                    <div class="cargoTitle">
-                        Fukutaicho
-                    </div>
-                    <div class="cargoName">
-                        Nombre
-                    </div>
+                <div class="persCargo">
+                    Irving Zavaleta Loja
                 </div>
-            </div>
-            <div class="cargo">
-                <div class="cargoImg">
-                    <img src="{{ asset('img/Sample_User_Icon.png') }}">
-                </div>
-                <div class="cargoInfo">
-                    <div class="cargoTitle">
-                        Fukutaicho
-                    </div>
-                    <div class="cargoName">
-                        Nombre
-                    </div>
+                <div class="descCargo">
+                    Fukutaicho de Varones Oficiales
                 </div>
             </div>
             <div class="cargo">
-                <div class="cargoImg">
-                    <img src="{{ asset('img/Sample_User_Icon.png') }}">
+                <span class="material-symbols-outlined">delete</span>
+                <div class="imgCargo">
+                    <img src="{{ asset('img\Sample_User_Icon.png') }}">
                 </div>
-                <div class="cargoInfo">
-                    <div class="cargoTitle">
-                        Fukutaicho
-                    </div>
-                    <div class="cargoName">
-                        Nombre
-                    </div>
+                <div class="persCargo">
+                    Luz Irene Tello Delgado
+                </div>
+                <div class="descCargo">
+                    Fukutaicho de Damas Oficiales
                 </div>
             </div>
             <div class="cargo">
-                <div class="cargoImg">
-                    <img src="{{ asset('img/Sample_User_Icon.png') }}">
+                <span class="material-symbols-outlined">delete</span>
+                <div class="imgCargo">
+                    <img src="{{ asset('img\Sample_User_Icon.png') }}">
                 </div>
-                <div class="cargoInfo">
-                    <div class="cargoTitle">
-                        Fukutaicho
-                    </div>
-                    <div class="cargoName">
-                        Nombre
-                    </div>
+                <div class="persCargo">
+                    Joaquin Rodrigo Tello Delgado
+                </div>
+                <div class="descCargo">
+                    Fukutaicho de Jun Tai In y Shonembu
+                </div>
+            </div>
+            <div class="cargo">
+                <span class="material-symbols-outlined">delete</span>
+                <div class="imgCargo">
+                    <img src="{{ asset('img\Sample_User_Icon.png') }}">
+                </div>
+                <div class="persCargo">
+                    Jair Jesus Rivadeneira Chinchay
+                </div>
+                <div class="descCargo">
+                    Fukutaicho de Áreas
                 </div>
             </div>
         </div>

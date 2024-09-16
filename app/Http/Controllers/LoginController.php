@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function entrar(Request $request){
-        return view('dashboard');
-    }
 
     public function register(Request $request){
         $user = new User();

@@ -22,6 +22,7 @@ class Miembro extends Model
         'categoria',
         'modulo',
         'seminario',
+        'fecha_nac',
         'ondas_d',
         'usuario',
         'password',
