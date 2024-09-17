@@ -12,6 +12,7 @@
         </x-navBar>
         <div class="vntAgregarCargo hidden" id="vntAgregarCargo">
             <form id="cargosForm" action="{{ route('crearCargo') }}" method="POST">
+                @csrf
                 <div class="formTitle">
                     Agregar Cargo
                 </div>
