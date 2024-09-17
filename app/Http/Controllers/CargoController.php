@@ -13,7 +13,29 @@ class CargoController extends Controller
      */
     public function index()
     {
-        //
+        $cargos = Cargo::with('miembro')->get();
+
+        $taicho = $cargos->filter(function($cargo){
+            return $cargo->cargo == 'Taicho';
+        });
+
+        $fukutaicho = $cargos->filter(function($cargo){
+            return $cargo->cargo == 'Fukutaicho';
+        });
+
+        $shotaicho = $cargos->filter(function($cargo){
+            return $cargo->cargo == 'Shotaicho';
+        });
+
+        $fukushotaicho = $cargos->filter(function($cargo){
+            return $cargo->cargo == 'Fukushotaicho';
+        });
+
+        $buntaicho = $cargos->filter(function($cargo){
+            return $cargo->cargo == 'Buntaicho';
+        });
+
+        return view('cargos', compact('taicho', 'fukutaicho', 'shotaicho', 'fukushotaicho', 'buntaicho'));
     }
 
     /**
@@ -31,10 +53,10 @@ class CargoController extends Controller
     {
         Log::info('Ingreso a la funcion');
         
-        $request->validate([
-            'cargo' => 'require|string',
-            'descripcion' => 'require|string',
-            'id_miembro' => 'require|integer',
+        $request -> validate([
+            'cargo' => 'required|string',
+            'descripcion' => 'string',
+            'id_miembro' => 'required|integer',
         ]);
 
         Log::info('Paso la validación');

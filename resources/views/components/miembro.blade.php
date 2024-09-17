@@ -71,12 +71,18 @@
                     </div>
                 </div>
                 <div class="buttonRow">
-                    <div class="btnModificar">
-                        Modificar
-                    </div>
-                    <div class="btnEliminar">
-                        Eliminar
-                    </div>
+                    <form action="{{ route('modMiembro', $miembro->id) }}" method="GET">
+                        @csrf
+                        <button class="btnModificar">
+                            Modificar
+                        </button>
+                    </form>
+                    <form action="{{ route('eliminarMiembro', $miembro->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este miembro?');">
+                        @csrf
+                        <button class="btnEliminar">
+                            Eliminar
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

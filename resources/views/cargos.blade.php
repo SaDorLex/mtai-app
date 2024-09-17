@@ -19,7 +19,7 @@
                 <div class="formInput">
                     <select onclick="vefCargo()" id="cargo" name="cargo">
                         <option value="Taicho">Taicho</option>
-                        <option value="=Fukutaicho">Fukutaicho</option>
+                        <option value="Fukutaicho">Fukutaicho</option>
                         <option value="Shotaicho">Shotaicho</option>
                         <option value="Fukushotaicho">Fukushotaicho</option>
                         <option value="Buntaicho">Buntaicho</option>
@@ -53,68 +53,29 @@
             Agregar Cargo
         </div>
         <div class="contCargos">
-            <div class="cargo">
-                <span class="material-symbols-outlined">delete</span>
-                <div class="imgCargo">
-                    <img src="{{ asset('img\Sample_User_Icon.png') }}">
-                </div>
-                <div class="persCargo">
-                    Ricardo Valente Eche Espinoza
-                </div>
-                <div class="descCargo">
-                    Taicho
-                </div>
-            </div>
+            @foreach($taicho as $cargo)
+                <x-miembroCargo :cargo="$cargo"/>
+            @endforeach
         </div>
         <div class="contCargos">
-            <div class="cargo">
-                <span class="material-symbols-outlined">delete</span>
-                <div class="imgCargo">
-                    <img src="{{ asset('img\Sample_User_Icon.png') }}">
-                </div>
-                <div class="persCargo">
-                    Irving Zavaleta Loja
-                </div>
-                <div class="descCargo">
-                    Fukutaicho de Varones Oficiales
-                </div>
-            </div>
-            <div class="cargo">
-                <span class="material-symbols-outlined">delete</span>
-                <div class="imgCargo">
-                    <img src="{{ asset('img\Sample_User_Icon.png') }}">
-                </div>
-                <div class="persCargo">
-                    Luz Irene Tello Delgado
-                </div>
-                <div class="descCargo">
-                    Fukutaicho de Damas Oficiales
-                </div>
-            </div>
-            <div class="cargo">
-                <span class="material-symbols-outlined">delete</span>
-                <div class="imgCargo">
-                    <img src="{{ asset('img\Sample_User_Icon.png') }}">
-                </div>
-                <div class="persCargo">
-                    Joaquin Rodrigo Tello Delgado
-                </div>
-                <div class="descCargo">
-                    Fukutaicho de Jun Tai In y Shonembu
-                </div>
-            </div>
-            <div class="cargo">
-                <span class="material-symbols-outlined">delete</span>
-                <div class="imgCargo">
-                    <img src="{{ asset('img\Sample_User_Icon.png') }}">
-                </div>
-                <div class="persCargo">
-                    Jair Jesus Rivadeneira Chinchay
-                </div>
-                <div class="descCargo">
-                    Fukutaicho de Áreas
-                </div>
-            </div>
+            @foreach($fukutaicho as $cargo)
+                <x-miembroCargo :cargo="$cargo"/>
+            @endforeach
+        </div>
+        <div class="contCargos">
+            @foreach($shotaicho as $cargo)
+                <x-miembroCargo :cargo="$cargo"/>
+            @endforeach
+        </div>
+        <div class="contCargos">
+            @foreach($fukushotaicho as $cargo)
+                <x-miembroCargo :cargo="$cargo"/>
+            @endforeach
+        </div>
+        <div class="contCargos">
+            @foreach($buntaicho as $cargo)
+                <x-miembroCargo :cargo="$cargo"/>
+            @endforeach
         </div>
         <script>
             var buscarMiembrosURL = '{{ route('buscarMiembro') }}';

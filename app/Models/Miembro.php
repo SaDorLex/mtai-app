@@ -28,4 +28,8 @@ class Miembro extends Model
         'password',
         'foto'
     ];
+
+    public function cargo(){
+        return $this->hasOne(Cargo::class, 'id_miembro');
+    }
 }

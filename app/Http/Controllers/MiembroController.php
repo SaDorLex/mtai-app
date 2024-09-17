@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Miembro;
 use Exception;
 
+use function Pest\Laravel\delete;
+
 class MiembroController extends Controller
 {
     /**
@@ -14,7 +16,9 @@ class MiembroController extends Controller
      */
     public function index()
     {
-        //
+        $miembros = Miembro::orderBy('ap_p', 'asc')->get();
+
+        return view('miembros', compact('miembros'));
     }
 
     /**
@@ -97,7 +101,13 @@ class MiembroController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $miembro = Miembro::find($id);
+        
+        if($miembro){
+            return view('modMiembro', compact('miembro'));
+        }else{
+            return redirect()->route('miembros')->with('error', 'Miembro no encontrado.');
+        }
     }
 
     /**
@@ -113,7 +123,14 @@ class MiembroController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $miembro = Miembro::find($id);
+
+        if($miembro){
+            $miembro->delete();
+            return redirect()->route('miembros')->with('success', 'Miembro eliminado exitosamente.');
+        }else{
+            return redirect()->route('miembros.index')->with('error', 'Miembro no encontrado.');
+        }
     }
 
     public function buscarMiembro(Request $request){

@@ -229,6 +229,8 @@
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.5s ease;
+    border: 0;
+    font-size: 1.5vw;
 }
 
 .btnModificar:hover{
@@ -242,6 +244,8 @@
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.5s ease;
+    border: 0;
+    font-size: 1.5vw;
 }
 
 .btnEliminar:hover{

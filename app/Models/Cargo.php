@@ -14,4 +14,8 @@ class Cargo extends Model
         'descripcion',
         'id_miembro',
     ];
+
+    public function miembro(){
+        return $this->belongsTo(Miembro::class, 'id_miembro');
+    }
 }

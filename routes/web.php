@@ -4,6 +4,7 @@ use App\Http\Controllers\CargoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MiembroController;
+use App\Models\Miembro;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,10 +25,6 @@ Route::get('/logout',[LoginController::class, 'logout']) -> name('logout');
 
 Route::view('/dashboard','dashboard') -> middleware('auth') -> name('dashboard');
 
-Route::view('/cargos','cargos') -> middleware('auth') -> name('cargos');
-
-Route::view('/miembros', 'miembros') -> middleware('auth') -> name('miembros');
-
 Route::view('/reportesDiarios', 'reportesDiarios') -> middleware('auth') -> name('reportesDiarios');
 
 Route::view('/reportesMensuales', 'reportesMensuales') -> middleware('auth') -> name('reportesMensuales');
@@ -38,10 +35,20 @@ Route::view('/agregarMiembro', 'agregarMiembro') -> middleware('auth') -> name('
 
 //CRUD de Miembros
 
+Route::get('miembros', [MiembroController::class, 'index']) -> name('miembros');
+
 Route::post('crearMiembro', [MiembroController::class, 'store']) -> name('crearMiembro');
 
 Route::get('/buscarMiembros', [MiembroController::class, 'buscarMiembro'])->name('buscarMiembro');
 
+Route::post('eliminarMiembro/{id}', [MiembroController::class, 'destroy']) -> name('eliminarMiembro');
+
+Route::get('miembros/{id}/edit', [MiembroController::class, 'edit']) -> name('modMiembro');
+
+
 //CRUD de Cargos
 
 Route::post('crearCargo', [CargoController::class, 'store']) -> name('crearCargo');
+
+Route::get('cargos', [CargoController::class, 'index']) -> name('cargos');
+
