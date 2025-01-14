@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     var data = {
         datasets: [{
             labels: ['Oficiales','Jun Tai In', 'Shonembu'],
-            data: [30, 30, 17],
+            data: [oficiales, preoficiales, shonembu],
             backgroundColor: [
                 'rgb(29, 98, 35)',
                 'rgb(238, 29, 51)',

@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Log;
 
-class Miembro extends Model
+class Miembro extends Authenticatable
 {
     use HasFactory;
 
@@ -31,5 +33,10 @@ class Miembro extends Model
 
     public function cargo(){
         return $this->hasOne(Cargo::class, 'id_miembro');
+    }
+
+    public function getAuthIdentifierName()
+    {
+        return 'usuario';
     }
 }

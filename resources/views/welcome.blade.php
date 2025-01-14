@@ -28,6 +28,11 @@
             </div>
             <button type="submit" class="button">Ingresar</button>
         </form>
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="subtitle">
             <a href="#">¿Olvidaste tu Contraseña?</a>
         </div>

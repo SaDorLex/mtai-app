@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Miembro;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use Exception;
 
 use function Pest\Laravel\delete;
@@ -113,9 +115,60 @@ class MiembroController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $request -> validate([
+            'nombre' => 'required|string|max:20',
+            'ap_p' => 'required|string|max:20',
+            'ap_m' => 'required|string|max:20',
+            'edad' => 'required|integer',
+            'dni' => 'required|string|max:8',
+            'genero' => 'required|string',
+            'local' => 'required|string',
+            'telefono' => 'required|string|max:9',
+            'correo' => 'required|email',
+            'categoria' => 'required|string',
+            'modulo' => 'required|string',
+            'seminario' => 'required|string',
+            'fecha_nac' => 'required|string',
+            'ondas_d' => 'required|string',
+            'input-file' => 'required|image|mimes:jpeg,png,jpg|max:4096',
+        ]);
+
+        $miembro = Miembro::find($request->input('id'));
+
+        if($miembro){
+            if($request->hasFile('input-file')){
+                $file = $request->file('input-file');
+                $archivo = $request->input('dni');
+                $fileName = $archivo . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/fotos',$fileName);
+                $path = 'fotos/' . $fileName;
+                Log::info($path);
+            }
+
+            $miembro->nombre = $request->nombre;
+            $miembro->ap_p = $request->ap_p;
+            $miembro->ap_m = $request->ap_m;
+            $miembro->edad = $request->edad;
+            $miembro->dni = $request->dni;
+            $miembro->genero = $request->genero;
+            $miembro->local = $request->local;
+            $miembro->telefono = $request->telefono;
+            $miembro->correo = $request->correo;
+            $miembro->categoria = $request->categoria;
+            $miembro->modulo = $request->modulo;
+            $miembro->seminario = $request->seminario;
+            $miembro->fecha_nac = $request->fecha_nac;
+            $miembro->ondas_d = $request->ondas_d;
+            $miembro->foto = $path;
+
+            $miembro->save();
+
+            return redirect()->route('miembros')->with('success', 'Miembro actualizado!');
+        }else{
+            return redirect()->back()-with('error','Ha ocurrido un error');
+        }
     }
 
     /**
@@ -129,7 +182,7 @@ class MiembroController extends Controller
             $miembro->delete();
             return redirect()->route('miembros')->with('success', 'Miembro eliminado exitosamente.');
         }else{
-            return redirect()->route('miembros.index')->with('error', 'Miembro no encontrado.');
+            return redirect()->route('miembros')->with('error', 'Miembro no encontrado.');
         }
     }
 
@@ -140,6 +193,37 @@ class MiembroController extends Controller
         $miembros = Miembro::where('nombre','LIKE',"%{$query}%")->get();
 
         return response()->json($miembros);
+    }
+
+    public function contarCategorias(){
+
+        $oficiales = Miembro::where('categoria', "Oficiales")->count();
+        $preoficiales = Miembro::where('categoria', "Jun Tai In")->count();
+        $shonembu = Miembro::where('categoria', "Shonembu")->count();
+        $all = Miembro::all()->count();
+
+        return view('dashboard', compact('oficiales', 'preoficiales', 'shonembu', 'all'));
+    }
+
+    public function loginWithCargo(Request $request){
+        $credentials = [
+            "usuario" => $request->email,
+            "password" => $request->password
+        ];
+
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+
+            $miembro = Auth::user();
+            if(!$miembro->cargo){
+                Auth::logout();
+                return redirect(route('login'))->with('error', 'No tienes acceso. Se requiere un cargo.');
+            }
+            Log::info("Pasa al dashboard?");
+            return redirect()->route('dashboard');
+        }else{
+            return redirect(route('login'))->with('error','Credenciales Incorrectas');
+        }
     }
 
 }

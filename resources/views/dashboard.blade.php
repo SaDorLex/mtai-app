@@ -16,19 +16,19 @@
                 </div>
                 <div class="porcentajes">
                     <canvas id="myPieChart" width="300" height="300"></canvas>
-                    <a>87</a>
+                    <a>{{ $all }}</a>
                 </div>
                 <div class="colorCategoria oficiales">
                     <div class="square bg-oficiales"></div>
-                    <a>Oficiales: 30</a>
+                    <a>Oficiales: {{ $oficiales }}</a>
                 </div>
                 <div class="colorCategoria jun">
                     <div class="square bg-jun"></div>
-                    <a>Jun Tai In: 30</a>
+                    <a>Jun Tai In: {{ $preoficiales }}</a>
                 </div>
                 <div class="colorCategoria shonembu">
                     <div class="square bg-shonembu"></div>
-                    <a>Shonembu: 30</a>
+                    <a>Shonembu: {{ $shonembu }}</a>
                 </div>
             </div>
             <div class="statistics">
@@ -85,6 +85,11 @@
             </div>
         </div>
     </body>
+    <script>
+        var oficiales = {{ $oficiales }};
+        var preoficiales = {{ $preoficiales }};
+        var shonembu = {{ $shonembu }};
+    </script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </html>

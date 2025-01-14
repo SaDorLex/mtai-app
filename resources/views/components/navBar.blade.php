@@ -4,7 +4,7 @@
 
 <div class="primaryBar">
     <div class="textPrimaryBar">
-        Bienvenido, #CARGO#
+        Bienvenido,
     </div>
     <div class="buttons">
         <div class="configPrimaryBar">

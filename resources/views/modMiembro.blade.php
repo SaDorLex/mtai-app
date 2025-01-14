@@ -14,7 +14,7 @@
         <div class="titulo">
             Actualización de Datos
         </div>
-        <form enctype="multipart/form-data">
+        <form action="{{ route('actMiembro') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="formulario">
                 <div class="form-img">
@@ -26,6 +26,7 @@
                 </div>
                 <div class="form-datos">
                     <div class="datos-row">
+                        <input name="id" style="display:none" value="{{ $miembro->id }}">
                         <input name="nombre" placeholder="Nombres" value="{{ $miembro->nombre }}" required>
                         <input name="ap_p" placeholder="Apellido Paterno" value="{{ $miembro->ap_p }}" required>
                         <input name="ap_m" placeholder="Apellido Materno" value="{{ $miembro->ap_m }}" required>
@@ -79,8 +80,8 @@
                         <div class="custom-button" id="custom-button">Seleccionar Archivo</div>
                     </div>
                     <div class="datos-row">
-                        <button class="btn-registrar">Actualizar</button>
-                        <button onclick="window.location.href = '{{ route('miembros') }}' " class="btn-cancelar">Cancelar</button>
+                        <button type="submit" class="btn-registrar">Actualizar</button>
+                        <button type="button" onclick="window.location.href = '{{ route('miembros') }}' " class="btn-cancelar">Cancelar</button>
                     </div>
                 </div>
             </div>
